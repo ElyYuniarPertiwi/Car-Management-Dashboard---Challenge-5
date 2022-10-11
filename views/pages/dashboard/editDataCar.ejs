@@ -1,0 +1,88 @@
+<div class="page-content">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/cars">Car</a></li>
+      <li class="breadcrumb-item"><a href="/cars">List Car</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><%- title %> </li>
+    </ol>
+  </nav>
+    <h1 class="page-title"><%- title %></h1>
+    <div class="card">
+      <div class="card-body">
+        <form method="POST" action="/cars/update/<%= car.id %>?_method=PUT">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row align-items-center">
+              <label for="car_name" class="col-sm-4 col-form-label"
+                >Nama <span>*</span></label
+              >
+              <div class="col-sm-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="car_name"
+                  name="car_name"
+                  placeholder="Avanza"
+                  autocomplete="false"
+                  required
+                  value="<%= car.car_name %>"
+                />
+              </div>
+            </div>
+            <div class="form-group row align-items-center">
+              <label for="car_price" class="col-sm-4 col-form-label"
+                >Sewa Per Hari <span>*</span></label
+              >
+              <div class="col-sm-8">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="car_price"
+                  name="car_price"
+                  placeholder="Rp 0,-"
+                  autocomplete="false"
+                  required
+                  value="<%= car.car_price %>"
+                  
+                />
+              </div>
+            </div>
+            <div class="form-group row align-items-center">
+              <label for="car_size" class="col-sm-4 col-form-label"
+                >Ukuran <span>*</span></label
+              >
+              <div class="col-sm-8">
+                <select class="form-select form-control" name="car_size" id="car_size">
+                    <option value="small" <%= car.car_size === 'small' ? 'selected' : '' %> >Small</option>
+                    <option value="medium" <%= car.car_size === 'medium' ? 'selected' : '' %> >Medium</option>
+                    <option value="large" <%= car.car_size === 'large' ? 'selected' : '' %> >Large</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="car_image" class="col-sm-4 col-form-label"
+                >Foto <span>*</span></label
+              >
+              <div class="col-sm-8">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="car_image"
+                  name="car_image"
+                  placeholder="Masukkan link image"
+                  autocomplete="false"
+                  required
+                  value="<%= car.car_image %>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-action">
+      <a href="/cars" class="btn btn-outline-primary mr-3">Cancel</a>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>
